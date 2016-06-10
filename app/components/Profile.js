@@ -14,13 +14,13 @@ export default class Profile extends Component {
 		const {bio, repos, notes} = this.state;
 		return (
 			<div className='mdl-grid'>
-				<div className='mdl-cell mdl-cell--4col'>
+				<div className='mdl-cell mdl-cell--4-col'>
 					<UserProfile username={username} bio={bio} />
 				</div>
-				<div className='mdl-cell mdl-cell--4col'>
+				<div className='mdl-cell mdl-cell--4-col'>
 					<Repos username={username} repos={repos} />
 				</div>
-				<div className='mdl-cell mdl-cell--4col'>
+				<div className='mdl-cell mdl-cell--4-col'>
 					<Notes username={username} notes={notes} />
 				</div>
 			</div>
