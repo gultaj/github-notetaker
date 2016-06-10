@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import Repos from './Github/Repos';
 import UserProfile from './Github/UserProfile';
 import Notes from './Notes/Notes';
+import Firebase from 'firebase';
+import reactFire from 'reactfire';
 
-export default class Profile extends Component {
+@reactFire
+class Profile extends Component {
 	constructor() {
 		super();
 		this.state = {bio: {}, notes: [], repos: []}
@@ -27,3 +30,4 @@ export default class Profile extends Component {
 		);
 	}
 }
+export default Profile;
