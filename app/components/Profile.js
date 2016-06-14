@@ -32,7 +32,7 @@ export default class Profile extends Component {
 					<Repos username={username} repos={repos} />
 				</div>
 				<div className='mdl-cell mdl-cell--4-col'>
-					<Notes username={username} notes={notes} addNote={this.handleAddNote.bind(this)} />
+					<Notes username={username} notes={notes} addNote={::this.handleAddNote} />
 				</div>
 			</div>
 		);
