@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import Repos from './Github/Repos';
 import UserProfile from './Github/UserProfile';
 import Notes from './Notes/Notes';
-import Firebase from 'firebase';
-import reactFire from 'reactfire';
+import Store from '../utils/Store';
 
-@reactFire
-class Profile extends Component {
+
+export default class Profile extends Component {
 	constructor() {
 		super();
 		this.state = {bio: {}, notes: [], repos: []}
+	}
+
+	componentDidMount() {
+		const {username} = this.props.params;
+		this.setState({notes: Store.get(username)});	
+	}
+
+	handleAddNote(note) {
+		this.setState({notes: this.state.notes.concat([note])});
 	}
 
 	render() {
@@ -24,10 +32,9 @@ class Profile extends Component {
 					<Repos username={username} repos={repos} />
 				</div>
 				<div className='mdl-cell mdl-cell--4-col'>
-					<Notes username={username} notes={notes} />
+					<Notes username={username} notes={notes} addNote={this.handleAddNote.bind(this)} />
 				</div>
 			</div>
 		);
 	}
 }
-export default Profile;
