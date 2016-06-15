@@ -7,7 +7,7 @@ export default class AddNote extends Component {
 
 	handleSubmit(e) {
 		if (e.key == 'Enter') {
-			console.log(this.refs.note.value);
+			// console.log(this.refs.note.value);
 			this.props.addNote(this.refs.note.value);
 			this.refs.note.value = '';
 		}

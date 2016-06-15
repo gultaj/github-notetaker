@@ -16,6 +16,13 @@ export default class Profile extends Component {
 		this.setState({notes: Store.get(username)});	
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		if (nextState.notes.length) {
+			const {username} = this.props.params;
+			Store.set(username, nextState.notes);
+		}
+	}
+
 	handleAddNote(note) {
 		this.setState({notes: this.state.notes.concat([note])});
 	}

@@ -5,8 +5,8 @@ export default class Store {
 		return data;
 	};
 
-	static set(username, obj) {
-		localStorage.setItem(username, JSON.stringify(obj));
+	static set(username, list) {
+		localStorage.setItem(username, JSON.stringify(list));
 	}
 
 }
