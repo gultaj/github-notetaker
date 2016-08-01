@@ -7,6 +7,6 @@ export default class Repos extends Component {
 	};
 
 	render() {
-		return (<div>Reposs</div>);
+		return (<div>{this.props.repos.length}</div>);
 	}
 }

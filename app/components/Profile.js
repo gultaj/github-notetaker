@@ -3,6 +3,7 @@ import Repos from './Github/Repos';
 import UserProfile from './Github/UserProfile';
 import Notes from './Notes/Notes';
 import Store from '../utils/Store';
+import { getGitHubUser } from '../utils/helpers';
 var ReactFireMixin = require('reactfire');
 
 var Profile = React.createClass({
@@ -12,9 +13,12 @@ var Profile = React.createClass({
 			notes: [], bio: {}, repos: [1,2,3]	
 		};
 	},
-	componentDidMount: function() {
+	componentWillMount: function() {
 		const {username} = this.props.params;
 		this.bindAsArray(firebase.database().ref(username), 'notes');
+		getGitHubUser(username).then(data => {
+			this.setState({repos: data.repos, bio: data.bio});
+		});
 	},
 	componentWillUnmount: function() {
 		this.unmount('notes');

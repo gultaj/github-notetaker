@@ -11,7 +11,6 @@ export default class Notes extends Component {
 
 	render() {
 		const {notes, username} = this.props;
-		console.log(notes);
 		return (
 			<div>
 				<h3>Notes for user: {username}</h3>
