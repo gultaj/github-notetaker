@@ -23,6 +23,14 @@ var Profile = React.createClass({
 	componentWillUnmount: function() {
 		this.unmount('notes');
 	},
+	componentWillReceiveProps(nextProps) {
+		const {username} = nextProps.params;
+		//this.unmount('notes');
+		this.bindAsArray(firebase.database().ref(username), 'notes');
+		getGitHubUser(username).then(data => {
+			this.setState({repos: data.repos, bio: data.bio});
+		});	
+	},
 	handleAddNote: function(text) {
 		this.firebaseRefs.notes.push(text);
 	},

@@ -19,9 +19,8 @@ export default class Search extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		var username = this.refs.username.value;
-		console.log(this.context);
 		this.refs.username.value = '';
-		this.context.router.push('profile/' + username);
+		this.context.router.push('/profile/' + username);
 	}
 	render() {
 		return (
