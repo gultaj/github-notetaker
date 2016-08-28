@@ -9,10 +9,10 @@ function getUserinfo(username) {
 }
 
 export function getGitHubUser(username) {
-	return Promise.all([getRepos(username), getUserinfo(username)]).then(arr => {
-		return {
+	return Promise.all([getRepos(username), getUserinfo(username)])
+	.then((arr) => ({
 			repos: arr[0],
 			bio: arr[1]
-		};
-	});
+		})
+	);
 }

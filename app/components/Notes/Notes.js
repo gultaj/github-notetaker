@@ -16,7 +16,7 @@ export default class Notes extends Component {
 				<h3>Notes for user: {username}</h3>
 				<AddNote addNote={this.props.addNote} />
 				<ul>
-					{notes.map((note, i) => (<li key={i}>{note['.value']}</li>))}
+					{notes.map((note, i) => (<li key={i}>{note}</li>))}
 				</ul>
 			</div>
 		);

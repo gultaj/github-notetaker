@@ -7,6 +7,11 @@ export default class Repos extends Component {
 	};
 
 	render() {
-		return (<div>{this.props.repos.length}</div>);
+		const {repos} = this.props;
+		return (
+			<ul>
+				{repos.map((repo, i) => (<li key={i}><a href={repo.html_url}>{repo.name}</a></li>))}
+			</ul>
+		);
 	}
 }
